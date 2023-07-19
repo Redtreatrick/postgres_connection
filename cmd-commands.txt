@@ -1,0 +1,8 @@
+sudo docker-compose up -d
+
+sudo docker-compose ps
+
+go run cmd/app/main.go
+
+sudo docker-compose exec pgdb psql -U db_user -c 'SELECT pid, usename,
+state, query FROM pg_stat_activity WHERE state IS NOT NULL;'
